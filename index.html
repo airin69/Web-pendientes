@@ -6,6 +6,10 @@
 
     <title>NUMA | Pendientes hechos a mano</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
     <style>
 
         * {
@@ -14,14 +18,45 @@
             padding: 0;
         }
 
+        :root {
+            --beige: #f1e7d2;
+            --beige-deep: #e6d7b8;
+            --khaki: #8c8a56;
+            --khaki-soft: #cfceac;
+            --lilac: #cdb9e3;
+            --lilac-deep: #a483c9;
+            --lilac-pale: #e6dbf1;
+            --ink: #33301f;
+            --ink-soft: #6b6852;
+            --gold: #b6996e;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f3ed;
-            color: #30312d;
+            font-family: 'Jost', sans-serif;
+            background-color: var(--beige);
+            color: var(--ink);
+        }
+
+        h1, h2, .logo {
+            font-family: 'Fraunces', serif;
+        }
+
+        a {
+            color: inherit;
         }
 
         /* ---------- NAVEGACIÓN ---------- */
@@ -32,83 +67,159 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fffdf9;
+            background-color: #faf5e9;
             position: sticky;
             top: 0;
             z-index: 10;
-            border-bottom: 1px solid #ebe5dc;
+            border-bottom: 1px solid var(--beige-deep);
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo {
-            font-size: 30px;
-            font-weight: bold;
-            letter-spacing: 3px;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+
+        .logo-charm {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--lilac-deep);
+            position: relative;
+            top: 9px;
+        }
+
+        .logo-charm::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 3px;
+            width: 1px;
+            height: 8px;
+            background-color: var(--ink-soft);
         }
 
         nav {
             display: flex;
-            gap: 40px;
+            align-items: center;
+            gap: 34px;
         }
 
         nav a {
             text-decoration: none;
-            color: #30312d;
-            font-size: 16px;
+            color: var(--ink);
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 1.5px;
+            background-color: var(--lilac-deep);
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
-            color: #78866b;
+            color: var(--khaki);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* ---------- PORTADA ---------- */
 
         .hero {
-            min-height: 78vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-thread {
+            width: 1px;
+            height: 46px;
+            background: linear-gradient(to bottom, transparent, var(--khaki-soft));
+            margin-bottom: 4px;
+        }
+
+        .hero-bead {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--lilac);
+            margin-bottom: 22px;
+            box-shadow: 0 0 0 5px var(--lilac-pale);
         }
 
         .hero-small {
-            color: #78866b;
-            font-size: 15px;
+            color: var(--khaki);
+            font-size: 14px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .hero h1 {
-            font-size: clamp(60px, 10vw, 120px);
-            letter-spacing: 8px;
-            margin-bottom: 25px;
+            font-size: clamp(64px, 11vw, 128px);
+            letter-spacing: 6px;
+            margin-bottom: 22px;
             font-weight: 600;
+            color: var(--ink);
         }
 
         .hero p {
-            font-size: 21px;
-            color: #666861;
-            max-width: 600px;
-            line-height: 1.6;
-            margin-bottom: 40px;
+            font-size: 20px;
+            color: var(--ink-soft);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 42px;
+            font-weight: 300;
         }
 
         .button {
             display: inline-block;
-            background-color: #30312d;
-            color: white;
+            background-color: var(--lilac-deep);
+            color: #fffdf9;
             text-decoration: none;
-            padding: 17px 35px;
+            padding: 16px 38px;
             border-radius: 40px;
-            font-size: 16px;
-            transition: 0.3s;
+            font-size: 15px;
+            letter-spacing: 0.4px;
+            transition: 0.3s ease;
+            box-shadow: 0 6px 18px rgba(164, 131, 201, 0.35);
         }
 
         .button:hover {
-            background-color: #78866b;
+            background-color: var(--khaki);
             transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(140, 138, 86, 0.35);
+        }
+
+        /* ---------- DIVISOR ---------- */
+
+        .divider {
+            display: block;
+            width: 100%;
+            height: 28px;
+            margin: 0 auto;
         }
 
         /* ---------- SECCIONES ---------- */
@@ -119,20 +230,30 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .section-title.in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title span {
-            color: #78866b;
-            font-size: 14px;
+            color: var(--lilac-deep);
+            font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .section-title h2 {
             font-size: 42px;
-            margin-top: 12px;
+            margin-top: 14px;
             font-weight: 500;
+            color: var(--ink);
         }
 
         /* ---------- COLECCIÓN ---------- */
@@ -140,327 +261,61 @@
         .collection {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 36px 30px;
             max-width: 1100px;
             margin: auto;
         }
 
         .product {
-            background-color: #fffdf9;
-            padding: 18px;
-            border-radius: 4px;
-            transition: 0.3s;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .product:hover {
-            transform: translateY(-5px);
+        .product.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* efecto "colgando": las piezas del medio bajan un poco, como pendientes desiguales */
+        .product:nth-child(2),
+        .product:nth-child(5) {
+            transform: translateY(30px);
+        }
+
+        .product.in-view:nth-child(2),
+        .product.in-view:nth-child(5) {
+            transform: translateY(30px);
+        }
+
+        .product-thread {
+            width: 1px;
+            height: 22px;
+            background-color: var(--khaki-soft);
+            margin: 0 auto;
         }
 
         .product-image {
-            height: 330px;
-            background-color: #e7e1d8;
+            height: 210px;
+            width: 210px;
+            margin: 0 auto 22px;
+            background-color: var(--beige-deep);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+            transition: transform 0.4s ease, border-radius 0.4s ease;
             overflow: hidden;
         }
 
-        .product-image span {
-            font-size: 70px;
+        .product:hover .product-image {
+            transform: translateY(-6px) rotate(-3deg);
+            border-radius: 42% 58% 40% 60% / 55% 45% 55% 45%;
+        }
+
+        .product-image svg {
+            width: 58%;
+            height: auto;
+            overflow: visible;
             transition: transform 0.4s ease;
-        }
-
-        .product:hover .product-image span {
-            transform: scale(1.15) rotate(-5deg);
-        }
-
-        .product:nth-child(2) .product-image {
-            background-color: #dedbd0;
-        }
-
-        .product:nth-child(3) .product-image {
-            background-color: #e2dbe7;
-        }
-
-        .product:nth-child(4) .product-image {
-            background-color: #dce2d5;
-        }
-
-        .product:nth-child(5) .product-image {
-            background-color: #e9ddd5;
-        }
-
-        .product:nth-child(6) .product-image {
-            background-color: #ddd7e5;
-        }
-
-        .product h3 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 7px;
-        }
-
-        .product p {
-            color: #777970;
-            font-size: 14px;
-        }
-
-        /* ---------- SOBRE NUMA ---------- */
-
-        .about {
-            background-color: #dce2d5;
-        }
-
-        .about-content {
-            max-width: 750px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about-content h2 {
-            font-size: 42px;
-            font-weight: 500;
-            margin-bottom: 25px;
-        }
-
-        .about-content p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555950;
-        }
-
-        /* ---------- FOOTER ---------- */
-
-        footer {
-            background-color: #30312d;
-            color: #fffdf9;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        footer .logo {
-            margin-bottom: 12px;
-        }
-
-        footer p {
-            color: #c9cbc4;
-            font-size: 14px;
-        }
-
-        /* ---------- MÓVIL ---------- */
-
-        @media (max-width: 750px) {
-
-            header {
-                padding: 0 5%;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .hero h1 {
-                font-size: 65px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            section {
-                padding: 70px 5%;
-            }
-
-            .collection {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                height: 300px;
-            }
-
-            .section-title h2 {
-                font-size: 34px;
-            }
-        }
-
-    </style>
-</head>
-
-<body>
-
-    <!-- NAVEGACIÓN -->
-
-    <header>
-
-        <div class="logo">NUMA</div>
-
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#coleccion">Colección</a>
-            <a href="#sobre-mi">Sobre mí</a>
-        </nav>
-
-    </header>
-
-
-    <!-- PORTADA -->
-
-    <main>
-
-        <section class="hero" id="inicio">
-
-            <div class="hero-small">
-                Hecho a mano · Pequeñas piezas
-            </div>
-
-            <h1>NUMA</h1>
-
-            <p>
-                Pendientes hechos a mano, uno a uno.
-                Pequeñas piezas creadas poquito a poco.
-            </p>
-
-            <a href="#coleccion" class="button">
-                Descubrir colección
-            </a>
-
-        </section>
-
-
-        <!-- COLECCIÓN -->
-
-        <section id="coleccion">
-
-            <div class="section-title">
-
-                <span>Mis piezas</span>
-
-                <h2>La colección</h2>
-
-            </div>
-
-
-            <div class="collection">
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>🌿</span>
-                    </div>
-
-                    <h3>Hoja Salvia</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>💜</span>
-                    </div>
-
-                    <h3>Lila</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>🌈</span>
-                    </div>
-
-                    <h3>Ondas</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>🌸</span>
-                    </div>
-
-                    <h3>Jardín</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>🪻</span>
-                    </div>
-
-                    <h3>Flor Lila</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-
-                <div class="product">
-
-                    <div class="product-image">
-                        <span>🍋</span>
-                    </div>
-
-                    <h3>Verano</h3>
-
-                    <p>Próximamente</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- SOBRE NUMA -->
-
-        <section class="about" id="sobre-mi">
-
-            <div class="about-content">
-
-                <h2>Sobre NUMA</h2>
-
-                <p>
-                    NUMA nace de las ganas de crear algo con las manos.
-                    Cada pendiente está hecho uno a uno, cuidando las
-                    formas, los colores y los pequeños detalles que hacen
-                    que cada pieza sea especial.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- PIE DE PÁGINA -->
-
-    <footer>
-
-        <div class="logo">NUMA</div>
-
-        <p>Pendientes hechos a mano · Hecho con cariño</p>
-
-    </footer>
-
-</body>
-</html>
