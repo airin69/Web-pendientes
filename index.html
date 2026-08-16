@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NUMA</title>
-
-    <style>
-        <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NUMA | Pendientes hechos a mano</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -119,7 +111,7 @@
             transform: translateY(-2px);
         }
 
-        /* ---------- COLECCIÓN ---------- */
+        /* ---------- SECCIONES ---------- */
 
         section {
             padding: 100px 7%;
@@ -142,6 +134,8 @@
             margin-top: 12px;
             font-weight: 500;
         }
+
+        /* ---------- COLECCIÓN ---------- */
 
         .collection {
             display: grid;
@@ -169,8 +163,16 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
-            color: #888b82;
-            font-size: 14px;
+            overflow: hidden;
+        }
+
+        .product-image span {
+            font-size: 70px;
+            transition: transform 0.4s ease;
+        }
+
+        .product:hover .product-image span {
+            transform: scale(1.15) rotate(-5deg);
         }
 
         .product:nth-child(2) .product-image {
@@ -204,7 +206,7 @@
             font-size: 14px;
         }
 
-        /* ---------- SOBRE MÍ ---------- */
+        /* ---------- SOBRE NUMA ---------- */
 
         .about {
             background-color: #dce2d5;
@@ -279,38 +281,23 @@
             }
 
             .product-image {
-                height: 330px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    overflow: hidden;
-    font-size: 65px;
-}
-
-.product-image span {
-    font-size: 70px;
-    transition: transform 0.4s ease;
-}
-
-.product:hover .product-image span {
-    transform: scale(1.15) rotate(-5deg);
-}
+                height: 300px;
             }
 
             .section-title h2 {
                 font-size: 34px;
             }
         }
+
     </style>
 </head>
-
 
 <body>
 
     <!-- NAVEGACIÓN -->
 
     <header>
+
         <div class="logo">NUMA</div>
 
         <nav>
@@ -318,6 +305,7 @@
             <a href="#coleccion">Colección</a>
             <a href="#sobre-mi">Sobre mí</a>
         </nav>
+
     </header>
 
 
@@ -349,68 +337,100 @@
 
         <section id="coleccion">
 
+            <div class="section-title">
+
+                <span>Mis piezas</span>
+
+                <h2>La colección</h2>
+
+            </div>
+
+
             <div class="collection">
 
-    <div class="product">
-        <div class="product-image">
-            <span>🌿</span>
-        </div>
-        <h3>Hoja Salvia</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
+
+                    <div class="product-image">
+                        <span>🌿</span>
+                    </div>
+
+                    <h3>Hoja Salvia</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
 
 
-    <div class="product">
-        <div class="product-image">
-            <span>💜</span>
-        </div>
-        <h3>Lila</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
+
+                    <div class="product-image">
+                        <span>💜</span>
+                    </div>
+
+                    <h3>Lila</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
 
 
-    <div class="product">
-        <div class="product-image">
-            <span>🌈</span>
-        </div>
-        <h3>Ondas</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
+
+                    <div class="product-image">
+                        <span>🌈</span>
+                    </div>
+
+                    <h3>Ondas</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
 
 
-    <div class="product">
-        <div class="product-image">
-            <span>🌸</span>
-        </div>
-        <h3>Jardín</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
+
+                    <div class="product-image">
+                        <span>🌸</span>
+                    </div>
+
+                    <h3>Jardín</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
 
 
-    <div class="product">
-        <div class="product-image">
-            <span>🪻</span>
-        </div>
-        <h3>Flor Lila</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
+
+                    <div class="product-image">
+                        <span>🪻</span>
+                    </div>
+
+                    <h3>Flor Lila</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
 
 
-    <div class="product">
-        <div class="product-image">
-            <span>🍋</span>
-        </div>
-        <h3>Verano</h3>
-        <p>Próximamente</p>
-    </div>
+                <div class="product">
 
-</div>
+                    <div class="product-image">
+                        <span>🍋</span>
+                    </div>
+
+                    <h3>Verano</h3>
+
+                    <p>Próximamente</p>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- SOBRE MÍ -->
+        <!-- SOBRE NUMA -->
 
         <section class="about" id="sobre-mi">
 
