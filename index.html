@@ -279,7 +279,23 @@
             }
 
             .product-image {
-                height: 300px;
+                height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-size: 65px;
+}
+
+.product-image span {
+    font-size: 70px;
+    transition: transform 0.4s ease;
+}
+
+.product:hover .product-image span {
+    transform: scale(1.15) rotate(-5deg);
+}
             }
 
             .section-title h2 {
@@ -333,73 +349,62 @@
 
         <section id="coleccion">
 
-            <div class="section-title">
-                <span>Mis piezas</span>
-                <h2>La colección</h2>
-            </div>
-
-
             <div class="collection">
 
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
-
-                    <h3>Pendiente 01</h3>
-                    <p>Próximamente</p>
-                </div>
-
-
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
-
-                    <h3>Pendiente 02</h3>
-                    <p>Próximamente</p>
-                </div>
+    <div class="product">
+        <div class="product-image">
+            <span>🌿</span>
+        </div>
+        <h3>Hoja Salvia</h3>
+        <p>Próximamente</p>
+    </div>
 
 
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
-
-                    <h3>Pendiente 03</h3>
-                    <p>Próximamente</p>
-                </div>
-
-
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
-
-                    <h3>Pendiente 04</h3>
-                    <p>Próximamente</p>
-                </div>
+    <div class="product">
+        <div class="product-image">
+            <span>💜</span>
+        </div>
+        <h3>Lila</h3>
+        <p>Próximamente</p>
+    </div>
 
 
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
+    <div class="product">
+        <div class="product-image">
+            <span>🌈</span>
+        </div>
+        <h3>Ondas</h3>
+        <p>Próximamente</p>
+    </div>
 
-                    <h3>Pendiente 05</h3>
-                    <p>Próximamente</p>
-                </div>
+
+    <div class="product">
+        <div class="product-image">
+            <span>🌸</span>
+        </div>
+        <h3>Jardín</h3>
+        <p>Próximamente</p>
+    </div>
 
 
-                <div class="product">
-                    <div class="product-image">
-                        FOTO
-                    </div>
+    <div class="product">
+        <div class="product-image">
+            <span>🪻</span>
+        </div>
+        <h3>Flor Lila</h3>
+        <p>Próximamente</p>
+    </div>
 
-                    <h3>Pendiente 06</h3>
-                    <p>Próximamente</p>
-                </div>
 
+    <div class="product">
+        <div class="product-image">
+            <span>🍋</span>
+        </div>
+        <h3>Verano</h3>
+        <p>Próximamente</p>
+    </div>
+
+</div>
             </div>
 
         </section>
