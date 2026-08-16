@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NUMA | Pendientes hechos a mano</title>
+    <title>NUMA | Pendientes de Autor</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,16 +18,16 @@
         }
 
         :root {
-            --beige: #f1e7d2;
-            --beige-deep: #e6d7b8;
-            --khaki: #8c8a56;
-            --khaki-soft: #cfceac;
-            --lilac: #cdb9e3;
-            --lilac-deep: #a483c9;
-            --lilac-pale: #e6dbf1;
-            --ink: #33301f;
-            --ink-soft: #6b6852;
-            --gold: #b6996e;
+            --bg-main: #fbf9f5;
+            --bg-card: #f4efe6;
+            --surface-glass: rgba(251, 249, 245, 0.85);
+            --ink: #222018;
+            --ink-muted: #726f5e;
+            --khaki-accent: #8c8a56;
+            --lilac-accent: #9a80b8;
+            --border-subtle: rgba(51, 48, 31, 0.08);
+            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.07);
         }
 
         html {
@@ -36,218 +35,166 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            * {
-                animation-duration: 0.001ms !important;
-                transition-duration: 0.001ms !important;
-            }
+            html { scroll-behavior: auto; }
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
 
         body {
             font-family: 'Jost', sans-serif;
-            background-color: var(--beige);
+            background-color: var(--bg-main);
             color: var(--ink);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1,
-        h2,
-        .logo {
+        h1, h2, h3, .logo {
             font-family: 'Fraunces', serif;
+            font-weight: 300;
         }
 
-        a {
-            color: inherit;
-        }
-
-
-        /* ---------- NAVEGACIÓN ---------- */
+        /* ---------- NAVEGACIÓN (Glassmorphism Header) ---------- */
 
         header {
-            height: 90px;
-            padding: 0 7%;
+            height: 80px;
+            padding: 0 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #faf5e9;
+            background-color: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 10;
-            border-bottom: 1px solid var(--beige-deep);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .logo-wrap {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .logo {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: 4px;
+            font-size: 24px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
         }
 
         .logo-charm {
-            width: 9px;
-            height: 9px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
-            background-color: var(--lilac-deep);
-            position: relative;
-            top: 9px;
-        }
-
-        .logo-charm::before {
-            content: "";
-            position: absolute;
-            top: -8px;
-            left: 3px;
-            width: 1px;
-            height: 8px;
-            background-color: var(--ink-soft);
+            background-color: var(--lilac-accent);
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 34px;
+            gap: 40px;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--ink);
-            font-size: 15px;
-            letter-spacing: 0.3px;
+            color: var(--ink-muted);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color 0.3s ease;
             position: relative;
-            padding-bottom: 4px;
         }
 
         nav a::after {
             content: "";
             position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
-            height: 1.5px;
-            background-color: var(--lilac-deep);
-            transition: width 0.3s ease;
+            left: 50%;
+            bottom: -4px;
+            width: 0;
+            height: 1px;
+            background-color: var(--ink);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         nav a:hover {
-            color: var(--khaki);
+            color: var(--ink);
         }
 
         nav a:hover::after {
             width: 100%;
         }
 
-
-        /* ---------- PORTADA ---------- */
+        /* ---------- PORTADA (Hero) ---------- */
 
         .hero {
-            min-height: 80vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px;
-            position: relative;
-            overflow: hidden;
+            padding: 80px 20px;
         }
 
-        .hero-thread {
-            width: 1px;
-            height: 46px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                var(--khaki-soft)
-            );
-            margin-bottom: 4px;
-        }
-
-        .hero-bead {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--lilac);
-            margin-bottom: 22px;
-            box-shadow: 0 0 0 5px var(--lilac-pale);
-        }
-
-        .hero-small {
-            color: var(--khaki);
-            font-size: 14px;
-            letter-spacing: 3px;
+        .hero-pill {
+            font-size: 11px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 22px;
+            color: var(--khaki-accent);
+            margin-bottom: 24px;
+            border: 1px solid rgba(140, 138, 86, 0.3);
+            padding: 6px 18px;
+            border-radius: 30px;
         }
 
         .hero h1 {
-            font-size: clamp(64px, 11vw, 128px);
-            letter-spacing: 6px;
-            margin-bottom: 22px;
-            font-weight: 600;
-            color: var(--ink);
+            font-size: clamp(52px, 8vw, 110px);
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            line-height: 1;
         }
 
         .hero p {
-            font-size: 20px;
-            color: var(--ink-soft);
-            max-width: 560px;
-            line-height: 1.7;
-            margin-bottom: 42px;
+            font-size: 18px;
+            color: var(--ink-muted);
+            max-width: 480px;
             font-weight: 300;
+            margin-bottom: 40px;
         }
 
         .button {
             display: inline-block;
-            background-color: var(--lilac-deep);
-            color: #fffdf9;
+            background-color: var(--ink);
+            color: var(--bg-main);
             text-decoration: none;
-            padding: 16px 38px;
-            border-radius: 40px;
-            font-size: 15px;
-            letter-spacing: 0.4px;
-            transition: 0.3s ease;
-            box-shadow: 0 6px 18px rgba(164, 131, 201, 0.35);
+            padding: 16px 42px;
+            border-radius: 50px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--shadow-soft);
         }
 
         .button:hover {
-            background-color: var(--khaki);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(140, 138, 86, 0.35);
+            background-color: var(--khaki-accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
 
-
-        /* ---------- DIVISOR ---------- */
-
-        .divider {
-            display: block;
-            width: 100%;
-            height: 28px;
-            margin: 0 auto;
-        }
-
-
-        /* ---------- SECCIONES ---------- */
+        /* ---------- SECCIONES & TITULOS ---------- */
 
         section {
-            padding: 100px 7%;
+            padding: 120px 8%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             opacity: 0;
-            transform: translateY(16px);
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .section-title.in-view {
@@ -256,38 +203,33 @@
         }
 
         .section-title span {
-            color: var(--lilac-deep);
-            font-size: 13px;
+            color: var(--lilac-accent);
+            font-size: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .section-title h2 {
-            font-size: 42px;
-            margin-top: 14px;
-            font-weight: 500;
-            color: var(--ink);
+            font-size: 40px;
         }
 
-
-        /* ---------- COLECCIÓN ---------- */
+        /* ---------- COLECCIÓN (Grid elegante) ---------- */
 
         .collection {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 50px 30px;
-            max-width: 1100px;
+            gap: 60px 40px;
+            max-width: 1200px;
             margin: auto;
         }
 
         .product {
             text-align: center;
             opacity: 0;
-            transform: translateY(24px);
-            transition:
-                opacity 0.6s ease,
-                transform 0.6s ease;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .product.in-view {
@@ -295,423 +237,251 @@
             transform: translateY(0);
         }
 
-        .product:nth-child(2),
-        .product:nth-child(5) {
-            transform: translateY(30px);
-        }
-
-        .product.in-view:nth-child(2),
-        .product.in-view:nth-child(5) {
-            transform: translateY(30px);
-        }
-
-        .product-thread {
-            width: 1px;
-            height: 22px;
-            background-color: var(--khaki-soft);
-            margin: 0 auto;
-        }
-
-        .product-image {
-            height: 210px;
-            width: 210px;
-            margin: 0 auto 22px;
-            background-color: var(--beige-deep);
+        .product-card {
+            height: 320px;
+            width: 100%;
+            background-color: var(--bg-card);
+            border-radius: 160px 160px 20px 20px; /* Arco orgánico superior */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius:
-                50% 50% 46% 46% /
-                55% 55% 45% 45%;
-            transition:
-                transform 0.4s ease,
-                border-radius 0.4s ease;
+            margin-bottom: 24px;
+            position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .product:hover .product-image {
-            transform: translateY(-6px) rotate(-3deg);
-            border-radius:
-                42% 58% 40% 60% /
-                55% 45% 55% 45%;
+        .product:hover .product-card {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            background-color: #eee9de;
         }
 
-        .product-image span {
-            font-size: 48px;
-            transition: transform 0.4s ease;
+        .product-tag {
+            font-family: 'Fraunces', serif;
+            font-size: 42px;
+            color: var(--ink);
+            opacity: 0.85;
+            font-style: italic;
+            transition: transform 0.5s ease;
         }
 
-        .product:hover .product-image span {
-            transform: scale(1.12) rotate(-5deg);
+        .product:hover .product-tag {
+            transform: scale(1.08);
         }
 
         .product h3 {
-            font-family: 'Fraunces', serif;
-            font-size: 21px;
-            font-weight: 450;
-            margin-bottom: 6px;
+            font-size: 20px;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
         }
 
         .product p {
-            color: var(--ink-soft);
-            font-size: 14px;
+            color: var(--ink-muted);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             font-weight: 300;
         }
 
-
-        /* ---------- SOBRE NUMA ---------- */
+        /* ---------- SOBRE MI ---------- */
 
         .about {
-            background-color: var(--khaki-soft);
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
         }
 
         .about-content {
-            max-width: 750px;
+            max-width: 680px;
             margin: auto;
             text-align: center;
         }
 
         .about-content h2 {
-            font-size: 44px;
-            font-weight: 500;
-            margin-bottom: 25px;
+            font-size: 38px;
+            margin-bottom: 24px;
         }
 
         .about-content p {
             font-size: 18px;
-            line-height: 1.9;
-            color: var(--ink-soft);
+            line-height: 2;
+            color: var(--ink-muted);
             font-weight: 300;
         }
-
 
         /* ---------- FOOTER ---------- */
 
         footer {
             background-color: var(--ink);
-            color: #fffdf9;
+            color: var(--bg-main);
             text-align: center;
-            padding: 45px 20px;
+            padding: 60px 20px;
         }
 
         footer .logo {
-            margin-bottom: 12px;
+            font-size: 20px;
+            letter-spacing: 5px;
+            margin-bottom: 16px;
         }
 
         footer p {
-            color: #d8d2c3;
-            font-size: 14px;
+            color: rgba(251, 249, 245, 0.5);
+            font-size: 13px;
+            letter-spacing: 1px;
             font-weight: 300;
         }
 
-
         /* ---------- MÓVIL ---------- */
 
-        @media (max-width: 750px) {
-
-            header {
-                height: 78px;
-                padding: 0 5%;
-            }
-
-            .logo {
-                font-size: 24px;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .hero {
-                min-height: 75vh;
-            }
-
-            .hero h1 {
-                font-size: 65px;
-            }
-
-            .hero p {
-                font-size: 17px;
+        @media (max-width: 850px) {
+            .collection {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
 
             section {
-                padding: 70px 5%;
+                padding: 80px 6%;
             }
 
-            .collection {
-                grid-template-columns: 1fr;
-                gap: 55px;
+            .hero h1 {
+                font-size: 52px;
             }
 
-            .product:nth-child(2),
-            .product:nth-child(5) {
-                transform: translateY(0);
-            }
-
-            .product.in-view:nth-child(2),
-            .product.in-view:nth-child(5) {
-                transform: translateY(0);
-            }
-
-            .product-image {
-                height: 210px;
-                width: 210px;
-            }
-
-            .section-title h2 {
-                font-size: 36px;
-            }
-
-            .about-content h2 {
-                font-size: 38px;
+            nav {
+                gap: 20px;
             }
         }
-
     </style>
 </head>
 
-
 <body>
 
-
     <!-- NAVEGACIÓN -->
-
     <header>
-
         <div class="logo-wrap">
-
             <div class="logo">NUMA</div>
-
             <div class="logo-charm"></div>
-
         </div>
 
-
         <nav>
-
             <a href="#inicio">Inicio</a>
-
             <a href="#coleccion">Colección</a>
-
             <a href="#sobre-mi">Sobre mí</a>
-
         </nav>
-
     </header>
 
-
-    <!-- PORTADA -->
-
     <main>
-
+        <!-- PORTADA -->
         <section class="hero" id="inicio">
-
-            <div class="hero-thread"></div>
-
-            <div class="hero-bead"></div>
-
-            <div class="hero-small">
-                Hecho a mano · Pequeñas piezas
-            </div>
-
+            <div class="hero-pill">Piezas Únicas de Autor</div>
             <h1>NUMA</h1>
-
-            <p>
-                Pendientes hechos a mano, uno a uno.
-                Pequeñas piezas creadas poquito a poco.
-            </p>
-
-            <a href="#coleccion" class="button">
-                Descubrir colección
-            </a>
-
+            <p>Pendientes modelados a mano, uno a uno. Piezas atemporales pensadas con calma.</p>
+            <a href="#coleccion" class="button">Ver Colección</a>
         </section>
-
 
         <!-- COLECCIÓN -->
-
         <section id="coleccion">
-
             <div class="section-title">
-
-                <span>Mis piezas</span>
-
-                <h2>La colección</h2>
-
+                <span>Catálogo Privado</span>
+                <h2>La Colección</h2>
             </div>
-
 
             <div class="collection">
-
-
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>🌿</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 01</span>
                     </div>
-
                     <h3>Hoja Salvia</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
 
-
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>💜</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 02</span>
                     </div>
-
                     <h3>Lila</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
 
-
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>🌈</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 03</span>
                     </div>
-
                     <h3>Ondas</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
 
-
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>🌸</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 04</span>
                     </div>
-
                     <h3>Jardín</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
 
-
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>🪻</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 05</span>
                     </div>
-
                     <h3>Flor Lila</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
-
 
                 <div class="product">
-
-                    <div class="product-thread"></div>
-
-                    <div class="product-image">
-                        <span>🍋</span>
+                    <div class="product-card">
+                        <span class="product-tag">Nº 06</span>
                     </div>
-
                     <h3>Verano</h3>
-
-                    <p>Próximamente</p>
-
+                    <p>En Elaboración</p>
                 </div>
-
-
             </div>
-
         </section>
 
-
-        <!-- SOBRE NUMA -->
-
+        <!-- SOBRE MI -->
         <section class="about" id="sobre-mi">
-
             <div class="about-content">
-
-                <h2>Sobre NUMA</h2>
-
+                <h2>El Proceso</h2>
                 <p>
-                    NUMA nace de las ganas de crear algo con las manos.
-                    Cada pendiente está hecho uno a uno, cuidando las
-                    formas, los colores y los pequeños detalles que hacen
-                    que cada pieza sea especial.
+                    NUMA nace de la intención de crear piezas con alma. 
+                    Cada pendiente es moldeado lentamente, prestando atención a la forma, 
+                    las texturas orgánicas y los pequeños matices que convierten a cada pieza en un objeto singular.
                 </p>
-
             </div>
-
         </section>
-
     </main>
 
-
-    <!-- PIE DE PÁGINA -->
-
+    <!-- FOOTER -->
     <footer>
-
         <div class="logo">NUMA</div>
-
-        <p>
-            Pendientes hechos a mano · Hecho con cariño
-        </p>
-
+        <p>Pendientes de autor · Colección personal</p>
     </footer>
 
-
-    <!-- ANIMACIONES -->
-
+    <!-- INTERSECTION OBSERVER CON APARICIÓN ESCALONADA -->
     <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach((entry) => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("in-view");
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.15
-            }
-        );
-
-
-        document
-            .querySelectorAll(".section-title, .product")
-            .forEach((element) => {
-
-                observer.observe(element);
-
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                }
             });
+        }, observerOptions);
 
+        // Aplicar animación a títulos
+        document.querySelectorAll(".section-title").forEach((el) => observer.observe(el));
+
+        // Aplicar animación con retraso gradual (Stagger) a los productos
+        document.querySelectorAll(".product").forEach((el, index) => {
+            el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            observer.observe(el);
+        });
     </script>
-
-
 </body>
 </html>
