@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NUMA | Pendientes de Autor</title>
+    <title>LUMA | Piezas de Autor</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,16 +18,18 @@
         }
 
         :root {
-            --bg-main: #fbf9f5;
-            --bg-card: #f4efe6;
-            --surface-glass: rgba(251, 249, 245, 0.85);
-            --ink: #222018;
-            --ink-muted: #726f5e;
-            --khaki-accent: #8c8a56;
-            --lilac-accent: #9a80b8;
-            --border-subtle: rgba(51, 48, 31, 0.08);
-            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.03);
-            --shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.07);
+            --bg-main: #fbf8fc;
+            --bg-card: #f3ecf7;
+            --bg-card-hover: #eadef2;
+            --surface-glass: rgba(251, 248, 252, 0.85);
+            --ink: #2a2230;
+            --ink-muted: #6e6275;
+            --lilac-accent: #8b68aa;
+            --lilac-soft: #cdb9e3;
+            --lilac-pale: #e6dbf1;
+            --border-subtle: rgba(139, 104, 170, 0.15);
+            --shadow-soft: 0 20px 40px rgba(139, 104, 170, 0.06);
+            --shadow-hover: 0 25px 50px rgba(139, 104, 170, 0.15);
         }
 
         html {
@@ -52,7 +54,7 @@
             font-weight: 300;
         }
 
-        /* ---------- NAVEGACIÓN (Glassmorphism Header) ---------- */
+        /* ---------- NAVEGACIÓN ---------- */
 
         header {
             height: 80px;
@@ -76,16 +78,17 @@
         }
 
         .logo {
-            font-size: 24px;
-            letter-spacing: 6px;
+            font-size: 26px;
+            letter-spacing: 7px;
             text-transform: uppercase;
         }
 
         .logo-charm {
-            width: 5px;
-            height: 5px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background-color: var(--lilac-accent);
+            box-shadow: 0 0 10px rgba(139, 104, 170, 0.5);
         }
 
         nav {
@@ -111,14 +114,14 @@
             left: 50%;
             bottom: -4px;
             width: 0;
-            height: 1px;
-            background-color: var(--ink);
+            height: 1.5px;
+            background-color: var(--lilac-accent);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
 
         nav a:hover {
-            color: var(--ink);
+            color: var(--lilac-accent);
         }
 
         nav a:hover::after {
@@ -141,18 +144,22 @@
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--khaki-accent);
+            color: var(--lilac-accent);
             margin-bottom: 24px;
-            border: 1px solid rgba(140, 138, 86, 0.3);
+            border: 1px solid var(--lilac-soft);
+            background-color: rgba(230, 219, 241, 0.4);
             padding: 6px 18px;
             border-radius: 30px;
         }
 
         .hero h1 {
-            font-size: clamp(52px, 8vw, 110px);
-            letter-spacing: 8px;
+            font-size: clamp(56px, 9vw, 120px);
+            letter-spacing: 10px;
             margin-bottom: 20px;
             line-height: 1;
+            background: linear-gradient(135deg, var(--ink) 60%, var(--lilac-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
@@ -165,8 +172,8 @@
 
         .button {
             display: inline-block;
-            background-color: var(--ink);
-            color: var(--bg-main);
+            background-color: var(--lilac-accent);
+            color: #ffffff;
             text-decoration: none;
             padding: 16px 42px;
             border-radius: 50px;
@@ -174,16 +181,16 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 10px 25px rgba(139, 104, 170, 0.3);
         }
 
         .button:hover {
-            background-color: var(--khaki-accent);
+            background-color: var(--ink);
             transform: translateY(-3px);
             box-shadow: var(--shadow-hover);
         }
 
-        /* ---------- SECCIONES & TITULOS ---------- */
+        /* ---------- SECCIONES ---------- */
 
         section {
             padding: 120px 8%;
@@ -209,13 +216,14 @@
             text-transform: uppercase;
             display: block;
             margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .section-title h2 {
             font-size: 40px;
         }
 
-        /* ---------- COLECCIÓN (Grid elegante) ---------- */
+        /* ---------- COLECCIÓN ---------- */
 
         .collection {
             display: grid;
@@ -240,8 +248,8 @@
         .product-card {
             height: 320px;
             width: 100%;
-            background-color: var(--bg-card);
-            border-radius: 160px 160px 20px 20px; /* Arco orgánico superior */
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(243, 236, 247, 0.4) 100%);
+            border-radius: 160px 160px 20px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -256,20 +264,22 @@
         .product:hover .product-card {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            background-color: #eee9de;
+            background: linear-gradient(180deg, var(--bg-card-hover) 0%, var(--bg-card) 100%);
+            border-color: var(--lilac-soft);
         }
 
-        .product-tag {
+        .product-num {
             font-family: 'Fraunces', serif;
-            font-size: 42px;
-            color: var(--ink);
-            opacity: 0.85;
+            font-size: 38px;
+            color: var(--lilac-accent);
+            opacity: 0.9;
             font-style: italic;
             transition: transform 0.5s ease;
         }
 
-        .product:hover .product-tag {
+        .product:hover .product-num {
             transform: scale(1.08);
+            color: var(--ink);
         }
 
         .product h3 {
@@ -279,11 +289,11 @@
         }
 
         .product p {
-            color: var(--ink-muted);
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            color: var(--lilac-accent);
+            font-size: 12px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: 500;
         }
 
         /* ---------- SOBRE MI ---------- */
@@ -292,6 +302,7 @@
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
+            position: relative;
         }
 
         .about-content {
@@ -303,6 +314,7 @@
         .about-content h2 {
             font-size: 38px;
             margin-bottom: 24px;
+            color: var(--ink);
         }
 
         .about-content p {
@@ -325,10 +337,11 @@
             font-size: 20px;
             letter-spacing: 5px;
             margin-bottom: 16px;
+            color: var(--lilac-pale);
         }
 
         footer p {
-            color: rgba(251, 249, 245, 0.5);
+            color: rgba(230, 219, 241, 0.6);
             font-size: 13px;
             letter-spacing: 1px;
             font-weight: 300;
@@ -362,80 +375,80 @@
     <!-- NAVEGACIÓN -->
     <header>
         <div class="logo-wrap">
-            <div class="logo">NUMA</div>
+            <div class="logo">LUMA</div>
             <div class="logo-charm"></div>
         </div>
 
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#coleccion">Colección</a>
-            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#sobre-mi">El Taller</a>
         </nav>
     </header>
 
     <main>
         <!-- PORTADA -->
         <section class="hero" id="inicio">
-            <div class="hero-pill">Piezas Únicas de Autor</div>
-            <h1>NUMA</h1>
-            <p>Pendientes modelados a mano, uno a uno. Piezas atemporales pensadas con calma.</p>
-            <a href="#coleccion" class="button">Ver Colección</a>
+            <div class="hero-pill">Modelado a Mano · Piezas Únicas</div>
+            <h1>LUMA</h1>
+            <p>Un espacio de calma y creación propia. Piezas pensadas despacio, creadas una a una.</p>
+            <a href="#coleccion" class="button">Ver Catálogo</a>
         </section>
 
         <!-- COLECCIÓN -->
         <section id="coleccion">
             <div class="section-title">
-                <span>Catálogo Privado</span>
-                <h2>La Colección</h2>
+                <span>Colección Personal</span>
+                <h2>Las Piezas</h2>
             </div>
 
             <div class="collection">
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 01</span>
+                        <span class="product-num">Nº 01</span>
                     </div>
-                    <h3>Hoja Salvia</h3>
-                    <p>En Elaboración</p>
+                    <h3>Pieza Orgánica I</h3>
+                    <p>En Proceso</p>
                 </div>
 
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 02</span>
+                        <span class="product-num">Nº 02</span>
                     </div>
-                    <h3>Lila</h3>
-                    <p>En Elaboración</p>
+                    <h3>Textura Matiz</h3>
+                    <p>En Proceso</p>
                 </div>
 
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 03</span>
+                        <span class="product-num">Nº 03</span>
                     </div>
-                    <h3>Ondas</h3>
-                    <p>En Elaboración</p>
+                    <h3>Línea Abierta</h3>
+                    <p>En Proceso</p>
                 </div>
 
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 04</span>
+                        <span class="product-num">Nº 04</span>
                     </div>
-                    <h3>Jardín</h3>
-                    <p>En Elaboración</p>
+                    <h3>Volumen Suave</h3>
+                    <p>En Proceso</p>
                 </div>
 
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 05</span>
+                        <span class="product-num">Nº 05</span>
                     </div>
-                    <h3>Flor Lila</h3>
-                    <p>En Elaboración</p>
+                    <h3>Gota Lila</h3>
+                    <p>En Proceso</p>
                 </div>
 
                 <div class="product">
                     <div class="product-card">
-                        <span class="product-tag">Nº 06</span>
+                        <span class="product-num">Nº 06</span>
                     </div>
-                    <h3>Verano</h3>
-                    <p>En Elaboración</p>
+                    <h3>Silueta Mini</h3>
+                    <p>En Proceso</p>
                 </div>
             </div>
         </section>
@@ -445,9 +458,9 @@
             <div class="about-content">
                 <h2>El Proceso</h2>
                 <p>
-                    NUMA nace de la intención de crear piezas con alma. 
-                    Cada pendiente es moldeado lentamente, prestando atención a la forma, 
-                    las texturas orgánicas y los pequeños matices que convierten a cada pieza en un objeto singular.
+                    LUMA nace como un refugio personal, una forma de reconectar con el tiempo propio. 
+                    Cada pendiente es resultado de moldear con las manos sin prisa, prestando atención a la forma, 
+                    las texturas y la luz de cada pieza.
                 </p>
             </div>
         </section>
@@ -455,11 +468,11 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="logo">NUMA</div>
-        <p>Pendientes de autor · Colección personal</p>
+        <div class="logo">LUMA</div>
+        <p>Piezas de autor · Espacio personal de creación</p>
     </footer>
 
-    <!-- INTERSECTION OBSERVER CON APARICIÓN ESCALONADA -->
+    <!-- INTERSECTION OBSERVER -->
     <script>
         const observerOptions = {
             threshold: 0.1,
@@ -474,10 +487,8 @@
             });
         }, observerOptions);
 
-        // Aplicar animación a títulos
         document.querySelectorAll(".section-title").forEach((el) => observer.observe(el));
 
-        // Aplicar animación con retraso gradual (Stagger) a los productos
         document.querySelectorAll(".product").forEach((el, index) => {
             el.style.transitionDelay = `${(index % 3) * 0.15}s`;
             observer.observe(el);
