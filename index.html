@@ -7,76 +7,292 @@
     <title>NUMA</title>
 
     <style>
-        body {
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NUMA | Pendientes hechos a mano</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #faf7f4;
-            color: #333;
+            padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f3ed;
+            color: #30312d;
+        }
+
+        /* ---------- NAVEGACIÓN ---------- */
+
         header {
-            padding: 25px 60px;
+            height: 90px;
+            padding: 0 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
+            background-color: #fffdf9;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #ebe5dc;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
         }
 
         nav a {
-            margin-left: 25px;
             text-decoration: none;
-            color: #333;
+            color: #30312d;
+            font-size: 16px;
         }
 
+        nav a:hover {
+            color: #78866b;
+        }
+
+        /* ---------- PORTADA ---------- */
+
         .hero {
-            min-height: 70vh;
+            min-height: 78vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
+        }
+
+        .hero-small {
+            color: #78866b;
+            font-size: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 60px;
-            margin-bottom: 15px;
+            font-size: clamp(60px, 10vw, 120px);
+            letter-spacing: 8px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .hero p {
-            font-size: 20px;
-            color: #666;
+            font-size: 21px;
+            color: #666861;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 40px;
         }
 
-        .boton {
+        .button {
             display: inline-block;
-            margin-top: 25px;
-            padding: 14px 28px;
-            background-color: #333;
+            background-color: #30312d;
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            padding: 17px 35px;
+            border-radius: 40px;
+            font-size: 16px;
+            transition: 0.3s;
         }
+
+        .button:hover {
+            background-color: #78866b;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- COLECCIÓN ---------- */
 
         section {
-            padding: 80px 10%;
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: #78866b;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        .collection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: #fffdf9;
+            padding: 18px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 330px;
+            background-color: #e7e1d8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #888b82;
+            font-size: 14px;
+        }
+
+        .product:nth-child(2) .product-image {
+            background-color: #dedbd0;
+        }
+
+        .product:nth-child(3) .product-image {
+            background-color: #e2dbe7;
+        }
+
+        .product:nth-child(4) .product-image {
+            background-color: #dce2d5;
+        }
+
+        .product:nth-child(5) .product-image {
+            background-color: #e9ddd5;
+        }
+
+        .product:nth-child(6) .product-image {
+            background-color: #ddd7e5;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 7px;
+        }
+
+        .product p {
+            color: #777970;
+            font-size: 14px;
+        }
+
+        /* ---------- SOBRE MÍ ---------- */
+
+        .about {
+            background-color: #dce2d5;
+        }
+
+        .about-content {
+            max-width: 750px;
+            margin: auto;
             text-align: center;
         }
 
+        .about-content h2 {
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555950;
+        }
+
+        /* ---------- FOOTER ---------- */
+
         footer {
-            padding: 30px;
+            background-color: #30312d;
+            color: #fffdf9;
             text-align: center;
-            background-color: #fff;
-            color: #777;
+            padding: 40px 20px;
+        }
+
+        footer .logo {
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #c9cbc4;
+            font-size: 14px;
+        }
+
+        /* ---------- MÓVIL ---------- */
+
+        @media (max-width: 750px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .collection {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
 
+
 <body>
+
+    <!-- NAVEGACIÓN -->
 
     <header>
         <div class="logo">NUMA</div>
@@ -88,45 +304,137 @@
         </nav>
     </header>
 
+
+    <!-- PORTADA -->
+
     <main>
 
         <section class="hero" id="inicio">
-            <div>
-                <h1>Próximamente</h1>
 
-                <p>
-                    Pendientes hechos a mano,
-                    creados poquito a poquito.
-                </p>
-
-                <a href="#coleccion" class="boton">
-                    Descubrir
-                </a>
+            <div class="hero-small">
+                Hecho a mano · Pequeñas piezas
             </div>
+
+            <h1>NUMA</h1>
+
+            <p>
+                Pendientes hechos a mano, uno a uno.
+                Pequeñas piezas creadas poquito a poco.
+            </p>
+
+            <a href="#coleccion" class="button">
+                Descubrir colección
+            </a>
+
         </section>
+
+
+        <!-- COLECCIÓN -->
 
         <section id="coleccion">
-            <h2>La colección</h2>
 
-            <p>
-                Estoy preparando los primeros diseños.
-                Muy pronto estarán aquí.
-            </p>
+            <div class="section-title">
+                <span>Mis piezas</span>
+                <h2>La colección</h2>
+            </div>
+
+
+            <div class="collection">
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 01</h3>
+                    <p>Próximamente</p>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 02</h3>
+                    <p>Próximamente</p>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 03</h3>
+                    <p>Próximamente</p>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 04</h3>
+                    <p>Próximamente</p>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 05</h3>
+                    <p>Próximamente</p>
+                </div>
+
+
+                <div class="product">
+                    <div class="product-image">
+                        FOTO
+                    </div>
+
+                    <h3>Pendiente 06</h3>
+                    <p>Próximamente</p>
+                </div>
+
+            </div>
+
         </section>
 
-        <section id="sobre-mi">
-            <h2>Sobre el proyecto</h2>
 
-            <p>
-                Un pequeño proyecto creativo hecho a mano,
-                empezando desde cero.
-            </p>
+        <!-- SOBRE MÍ -->
+
+        <section class="about" id="sobre-mi">
+
+            <div class="about-content">
+
+                <h2>Sobre NUMA</h2>
+
+                <p>
+                    NUMA nace de las ganas de crear algo con las manos.
+                    Cada pendiente está hecho uno a uno, cuidando las
+                    formas, los colores y los pequeños detalles que hacen
+                    que cada pieza sea especial.
+                </p>
+
+            </div>
+
         </section>
 
     </main>
 
+
+    <!-- PIE DE PÁGINA -->
+
     <footer>
-        © 2026 · NUMA
+
+        <div class="logo">NUMA</div>
+
+        <p>Pendientes hechos a mano · Hecho con cariño</p>
+
     </footer>
 
 </body>
