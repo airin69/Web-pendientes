@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LUMA | Taller & Piezas de Autor</title>
+    <title>LUMA | Piezas de Autor</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,7 @@
         /* ---------- PORTADA (Hero) ---------- */
 
         .hero {
-            min-height: 85vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -155,7 +155,7 @@
         .hero h1 {
             font-size: clamp(56px, 9vw, 120px);
             letter-spacing: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             line-height: 1;
             background: linear-gradient(135deg, var(--ink) 60%, var(--lilac-accent));
             -webkit-background-clip: text;
@@ -163,10 +163,11 @@
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--ink-muted);
             max-width: 480px;
             font-weight: 300;
+            letter-spacing: 1px;
             margin-bottom: 40px;
         }
 
@@ -269,14 +270,13 @@
         }
 
         .group-header h3 {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--ink);
         }
 
         .group-header p {
             font-size: 13px;
             color: var(--ink-muted);
-            font-style: italic;
         }
 
         .collection {
@@ -323,7 +323,6 @@
             border-color: var(--lilac-soft);
         }
 
-        /* Botón Favorito (Corazón) */
         .fav-btn {
             position: absolute;
             top: 20px;
@@ -372,50 +371,30 @@
             font-weight: 500;
         }
 
-        /* ---------- BITÁCORA / TALLER (Punto 4) ---------- */
+        /* ---------- SOBRE EL TALLER ---------- */
 
-        .journal {
+        .about {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
         }
 
-        .journal-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 40px auto 0;
+        .about-content {
+            max-width: 680px;
+            margin: auto;
+            text-align: center;
         }
 
-        .journal-card {
-            background-color: var(--bg-main);
-            padding: 30px 25px;
-            border-radius: 16px;
-            border: 1px solid var(--border-subtle);
-            text-align: left;
+        .about-content h2 {
+            font-size: 38px;
+            margin-bottom: 24px;
+            color: var(--ink);
         }
 
-        .journal-card .date {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--lilac-accent);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .journal-card h4 {
-            font-size: 20px;
-            font-family: 'Fraunces', serif;
-            margin-bottom: 12px;
-            font-weight: 400;
-        }
-
-        .journal-card p {
-            font-size: 14px;
+        .about-content p {
+            font-size: 17px;
+            line-height: 1.9;
             color: var(--ink-muted);
-            line-height: 1.7;
             font-weight: 300;
         }
 
@@ -445,7 +424,7 @@
         /* ---------- MÓVIL ---------- */
 
         @media (max-width: 850px) {
-            .collection, .journal-grid {
+            .collection {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
@@ -474,38 +453,37 @@
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#coleccion">Colección</a>
-            <a href="#bitacora">Bitácora</a>
-            <a href="#sobre-mi">El Taller</a>
+            <a href="#sobre-mi">Taller</a>
         </nav>
     </header>
 
     <main>
         <!-- PORTADA -->
         <section class="hero" id="inicio">
-            <div class="hero-pill">Modelado a Mano · Ediciones Limitadas</div>
+            <div class="hero-pill">Ediciones Limitadas</div>
             <h1>LUMA</h1>
-            <p>Un espacio de calma y creación propia. Piezas pensadas despacio, nacidas de una misma plancha de color.</p>
+            <p>Piezas de autor hechas a mano en arcilla polimérica.</p>
             <a href="#coleccion" class="button">Ver Colección</a>
         </section>
 
-        <!-- COLECCIÓN ORGANIZADA POR ESTAMPADOS -->
+        <!-- COLECCIÓN POR ESTAMPADOS -->
         <section id="coleccion">
             <div class="section-title">
-                <span>Colección Personal</span>
+                <span>Catálogo</span>
                 <h2>Las Piezas</h2>
             </div>
 
             <!-- Filtros -->
             <div class="filter-bar">
                 <button class="filter-btn active" onclick="filterItems('all')">Ver Todo</button>
-                <button class="filter-btn" onclick="filterItems('fav')">mis Favoritos ♥</button>
+                <button class="filter-btn" onclick="filterItems('fav')">Favoritos ♥</button>
             </div>
 
-            <!-- Serie 1: Primer Estampado -->
+            <!-- Serie 1 -->
             <div class="collection-group">
                 <div class="group-header">
                     <h3>Estampado Nº 01 — Marmolado Lila</h3>
-                    <p>Plancha base de arcilla pastel con vetas orgánicas</p>
+                    <p>Arcilla pastel con vetas orgánicas</p>
                 </div>
 
                 <div class="collection">
@@ -538,11 +516,11 @@
                 </div>
             </div>
 
-            <!-- Serie 2: Segundo Estampado -->
+            <!-- Serie 2 -->
             <div class="collection-group">
                 <div class="group-header">
                     <h3>Estampado Nº 02 — Textura Botánica</h3>
-                    <p>Impresiones de flores silvestres sobre arcilla mate</p>
+                    <p>Relieves sobre acabado mate</p>
                 </div>
 
                 <div class="collection">
@@ -567,42 +545,12 @@
             </div>
         </section>
 
-        <!-- BITÁCORA / TALLER (Punto 4) -->
-        <section class="journal" id="bitacora">
-            <div class="section-title">
-                <span>Diario de Creación</span>
-                <h2>Notas del Taller</h2>
-            </div>
-
-            <div class="journal-grid">
-                <div class="journal-card">
-                    <span class="date">Nota Nº 01</span>
-                    <h4>La llegada del material</h4>
-                    <p>Preparando la mesa y eligiendo las primeras mezclas de color. La arcilla lista para encontrar sus primeras formas.</p>
-                </div>
-
-                <div class="journal-card">
-                    <span class="date">Nota Nº 02</span>
-                    <h4>Primeras Planchas</h4>
-                    <p>Creando la combinación de tonos lilas y neutros. Cortar varias siluetas de un mismo patrón le da unidad a cada pieza.</p>
-                </div>
-
-                <div class="journal-card">
-                    <span class="date">Nota Nº 03</span>
-                    <h4>Paciencia y Horneado</h4>
-                    <p>Lijar cada borde a mano despacio. La calma del acabado fino es la parte más reconfortante del proceso.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- SOBRE EL TALLER -->
-        <section id="sobre-mi">
-            <div class="about-content" style="max-width: 680px; margin: auto; text-align: center;">
-                <h2 style="font-size: 38px; margin-bottom: 24px; font-family: 'Fraunces', serif; font-weight: 300;">El Proceso</h2>
-                <p style="font-size: 18px; line-height: 2; color: var(--ink-muted); font-weight: 300;">
-                    LUMA nace como un refugio personal, una forma de reconectar con el tiempo propio. 
-                    Cada pendiente es resultado de moldear con las manos sin prisa, prestando atención a la forma, 
-                    las texturas y la luz de cada pieza.
+        <section class="about" id="sobre-mi">
+            <div class="about-content">
+                <h2>El Taller</h2>
+                <p>
+                    LUMA es un proyecto independiente de joyería artesanal. Cada diseño parte de mezclas de color únicas y corte manual, garantizando que no existan dos pares idénticos.
                 </p>
             </div>
         </section>
@@ -611,12 +559,11 @@
     <!-- FOOTER -->
     <footer>
         <div class="logo">LUMA</div>
-        <p>Piezas de autor · Espacio personal de creación</p>
+        <p>Piezas de autor · Modelado artesanal</p>
     </footer>
 
-    <!-- INTERSECTION OBSERVER & SCRIPT FAVORITOS -->
+    <!-- SCRIPT ANIMACIÓN Y FAVORITOS -->
     <script>
-        // Animación al hacer scroll
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -628,7 +575,6 @@
 
         document.querySelectorAll(".section-title, .product").forEach((el) => observer.observe(el));
 
-        // Lógica de Favoritos (Local Storage)
         let favorites = JSON.parse(localStorage.getItem('luma_favs')) || [];
 
         function updateFavUI() {
@@ -671,7 +617,6 @@
             });
         }
 
-        // Cargar estado inicial de favoritos
         updateFavUI();
     </script>
 </body>
