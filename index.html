@@ -10,11 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
             --bg-main: #fbf8fc;
@@ -29,9 +25,7 @@
             --shadow-hover: 0 15px 35px rgba(139, 104, 170, 0.15);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Jost', sans-serif;
@@ -41,12 +35,8 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Fraunces', serif;
-            font-weight: 300;
-        }
+        h1, h2, h3, .logo { font-family: 'Fraunces', serif; font-weight: 300; }
 
-        /* HEADER RESPONSIVO */
         header {
             min-height: 70px;
             padding: 15px 5%;
@@ -63,41 +53,15 @@
             gap: 10px;
         }
 
-        .logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .logo-wrap { display: flex; align-items: center; gap: 6px; }
+        .logo { font-size: 22px; letter-spacing: 5px; text-transform: uppercase; }
+        .logo-charm { width: 6px; height: 6px; border-radius: 50%; background-color: var(--lilac-accent); }
 
-        .logo {
-            font-size: 22px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
+        nav { display: flex; gap: 15px; }
+        nav a { text-decoration: none; color: var(--ink-muted); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
 
-        .logo-charm {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--lilac-accent);
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--ink-muted);
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        /* HERO */
         .hero {
-            min-height: 40vh;
+            min-height: 35vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -106,49 +70,16 @@
             padding: 40px 20px;
         }
 
-        .hero h1 {
-            font-size: clamp(42px, 10vw, 90px);
-            letter-spacing: 8px;
-            margin-bottom: 8px;
-        }
+        .hero h1 { font-size: clamp(42px, 10vw, 90px); letter-spacing: 8px; margin-bottom: 8px; }
+        .hero p { font-size: 14px; color: var(--ink-muted); letter-spacing: 1px; }
 
-        .hero p {
-            font-size: 14px;
-            color: var(--ink-muted);
-            letter-spacing: 1px;
-        }
+        section { padding: 30px 5%; }
+        .section-title { text-align: center; margin-bottom: 30px; }
+        .section-title span { color: var(--lilac-accent); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; }
+        .section-title h2 { font-size: 30px; }
 
-        /* CATALOGO */
-        section {
-            padding: 40px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .section-title span {
-            color: var(--lilac-accent);
-            font-size: 11px;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-        }
-
-        .section-title h2 {
-            font-size: 30px;
-        }
-
-        .collection-group {
-            margin-bottom: 40px;
-        }
-
-        .group-header {
-            border-bottom: 1px solid var(--border-subtle);
-            padding-bottom: 8px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+        .collection-group { margin-bottom: 40px; }
+        .group-header { border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 25px; text-align: center; }
 
         .collection {
             display: grid;
@@ -158,9 +89,7 @@
             margin: auto;
         }
 
-        .product {
-            text-align: center;
-        }
+        .product { text-align: center; }
 
         .product-card {
             height: 380px;
@@ -198,25 +127,10 @@
             justify-content: center;
         }
 
-        .fav-btn.active {
-            color: #d9534f;
-            border-color: #d9534f;
-            background: #fff;
-        }
+        .fav-btn.active { color: #d9534f; border-color: #d9534f; background: #fff; }
+        .product h4 { font-size: 18px; font-family: 'Fraunces', serif; }
+        .product p { color: var(--lilac-accent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 
-        .product h4 {
-            font-size: 18px;
-            font-family: 'Fraunces', serif;
-        }
-
-        .product p {
-            color: var(--lilac-accent);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        /* TALLER Y FOOTER */
         .taller-info {
             max-width: 600px;
             margin: 0 auto;
@@ -238,18 +152,8 @@
             margin-top: 40px;
         }
 
-        footer .logo {
-            font-size: 20px;
-            letter-spacing: 5px;
-            margin-bottom: 6px;
-        }
-
-        footer p {
-            font-size: 11px;
-            color: var(--lilac-soft);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        footer .logo { font-size: 20px; letter-spacing: 5px; margin-bottom: 6px; }
+        footer p { font-size: 11px; color: var(--lilac-soft); letter-spacing: 2px; text-transform: uppercase; }
     </style>
 </head>
 
@@ -289,7 +193,7 @@
                     <div class="product" data-id="1">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(1)">♥</button>
-                            <img src="IMG_9215.jpg" alt="Pendientes Arco Dúo">
+                            <img src="IMG_9215.jpg" alt="Pendientes Arco Dúo" onerror="this.onerror=null; this.src='IMG_9215.JPG';">
                         </div>
                         <h4>Arco Dúo</h4>
                         <p>Pieza Única</p>
@@ -299,7 +203,7 @@
                     <div class="product" data-id="2">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(2)">♥</button>
-                            <img src="IMG_9216.jpg" alt="Pendientes Rombo Mármol">
+                            <img src="IMG_9216.jpg" alt="Pendientes Rombo Mármol" onerror="this.onerror=null; this.src='IMG_9216.JPG';">
                         </div>
                         <h4>Rombo Mármol</h4>
                         <p>Pieza Única</p>
