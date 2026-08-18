@@ -39,9 +39,8 @@
 
         header {
             min-height: 70px;
-            padding: 15px 5%;
+            padding: 15px 8%;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             background-color: var(--surface-glass);
@@ -50,15 +49,14 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border-subtle);
-            gap: 10px;
         }
 
         .logo-wrap { display: flex; align-items: center; gap: 6px; }
-        .logo { font-size: 22px; letter-spacing: 5px; text-transform: uppercase; }
+        .logo { font-size: 24px; letter-spacing: 6px; text-transform: uppercase; }
         .logo-charm { width: 6px; height: 6px; border-radius: 50%; background-color: var(--lilac-accent); }
 
-        nav { display: flex; gap: 15px; }
-        nav a { text-decoration: none; color: var(--ink-muted); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--ink-muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 
         .hero {
             min-height: 35vh;
@@ -70,21 +68,21 @@
             padding: 40px 20px;
         }
 
-        .hero h1 { font-size: clamp(42px, 10vw, 90px); letter-spacing: 8px; margin-bottom: 8px; }
-        .hero p { font-size: 14px; color: var(--ink-muted); letter-spacing: 1px; }
+        .hero h1 { font-size: clamp(42px, 8vw, 85px); letter-spacing: 8px; margin-bottom: 8px; }
+        .hero p { font-size: 15px; color: var(--ink-muted); letter-spacing: 1px; }
 
-        section { padding: 30px 5%; }
-        .section-title { text-align: center; margin-bottom: 30px; }
+        section { padding: 40px 8%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
         .section-title span { color: var(--lilac-accent); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; }
-        .section-title h2 { font-size: 30px; }
+        .section-title h2 { font-size: 32px; }
 
         .collection-group { margin-bottom: 40px; }
-        .group-header { border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 25px; text-align: center; }
+        .group-header { border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 30px; text-align: center; }
 
         .collection {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
             max-width: 900px;
             margin: auto;
         }
@@ -92,14 +90,20 @@
         .product { text-align: center; }
 
         .product-card {
-            height: 380px;
+            height: 400px;
             width: 100%;
             background: var(--bg-card);
-            border-radius: 170px 170px 20px 20px;
+            border-radius: 180px 180px 20px 20px;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
             margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover .product-card {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .product-card img {
@@ -111,8 +115,8 @@
 
         .fav-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 18px;
+            right: 18px;
             background: var(--surface-glass);
             border: 1px solid var(--border-subtle);
             width: 36px;
@@ -128,18 +132,18 @@
         }
 
         .fav-btn.active { color: #d9534f; border-color: #d9534f; background: #fff; }
-        .product h4 { font-size: 18px; font-family: 'Fraunces', serif; }
+        .product h4 { font-size: 19px; font-family: 'Fraunces', serif; margin-top: 5px; }
         .product p { color: var(--lilac-accent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 
         .taller-info {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
             text-align: center;
             color: var(--ink-muted);
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.8;
             background: var(--bg-card);
-            padding: 30px 20px;
+            padding: 35px 25px;
             border-radius: 20px;
             border: 1px solid var(--border-subtle);
         }
@@ -148,11 +152,11 @@
             background-color: var(--ink);
             color: var(--bg-main);
             text-align: center;
-            padding: 35px 20px;
-            margin-top: 40px;
+            padding: 40px 20px;
+            margin-top: 50px;
         }
 
-        footer .logo { font-size: 20px; letter-spacing: 5px; margin-bottom: 6px; }
+        footer .logo { font-size: 22px; letter-spacing: 5px; margin-bottom: 6px; }
         footer p { font-size: 11px; color: var(--lilac-soft); letter-spacing: 2px; text-transform: uppercase; }
     </style>
 </head>
@@ -193,7 +197,7 @@
                     <div class="product" data-id="1">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(1)">♥</button>
-                            <img src="IMG_9215.jpg" alt="Pendientes Arco Dúo" onerror="this.onerror=null; this.src='IMG_9215.JPG';">
+                            <img src="IMG_9215.jpg" alt="Arco Dúo" onerror="this.onerror=null; this.src='IMG_9215.JPG';">
                         </div>
                         <h4>Arco Dúo</h4>
                         <p>Pieza Única</p>
@@ -203,7 +207,7 @@
                     <div class="product" data-id="2">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(2)">♥</button>
-                            <img src="IMG_9216.jpg" alt="Pendientes Rombo Mármol" onerror="this.onerror=null; this.src='IMG_9216.JPG';">
+                            <img src="IMG_9216.jpg" alt="Rombo Mármol" onerror="this.onerror=null; this.src='IMG_9216.JPG';">
                         </div>
                         <h4>Rombo Mármol</h4>
                         <p>Pieza Única</p>
