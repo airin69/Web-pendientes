@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>LUMA | Piezas de Autor</title>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -89,6 +88,11 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--lilac-accent);
         }
 
         /* HERO */
@@ -136,7 +140,7 @@
             font-size: 38px;
         }
 
-        /* CATALOGO */
+        /* CATALOGO CON MARCOS ARQUEADOS */
         .collection-group {
             margin-bottom: 60px;
         }
@@ -150,7 +154,7 @@
         .collection {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 40px;
             max-width: 1000px;
             margin: auto;
         }
@@ -161,7 +165,7 @@
         }
 
         .product-card {
-            height: 380px;
+            height: 400px;
             width: 100%;
             background: var(--bg-card);
             border-radius: 180px 180px 20px 20px;
@@ -172,43 +176,52 @@
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border-subtle);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            padding: 10px;
         }
 
         .product-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 170px 170px 12px 12px;
         }
 
         .product:hover .product-card {
             transform: translateY(-6px);
+            background: var(--bg-card-hover);
             box-shadow: var(--shadow-hover);
         }
 
         .fav-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 18px;
+            right: 18px;
             background: var(--surface-glass);
             border: 1px solid var(--border-subtle);
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 16px;
             color: var(--ink-muted);
             z-index: 2;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .fav-btn.active {
             color: #d9534f;
             border-color: #d9534f;
+            background: #fff;
         }
 
         .product h4 {
             font-size: 18px;
             font-family: 'Fraunces', serif;
+            margin-top: 6px;
         }
 
         .product p {
@@ -218,11 +231,39 @@
             text-transform: uppercase;
         }
 
+        /* EL TALLER */
+        .taller-info {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--ink-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+        }
+
         footer {
             background-color: var(--ink);
             color: var(--bg-main);
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        footer .logo {
+            font-size: 24px;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 12px;
+            color: var(--lilac-soft);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -263,8 +304,7 @@
                     <div class="product" data-id="1">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(1)">♥</button>
-                            <!-- Sustituye el nombre del archivo por tu foto real -->
-                            <img src="IMG_9215.jpg" alt="Pendientes Arco Violeta">
+                            <img src="IMG_9215.jpg" alt="Pendientes Arco Dúo">
                         </div>
                         <h4>Arco Dúo</h4>
                         <p>Pieza Única</p>
@@ -274,7 +314,6 @@
                     <div class="product" data-id="2">
                         <div class="product-card">
                             <button class="fav-btn" onclick="toggleFav(2)">♥</button>
-                            <!-- Sustituye el nombre del archivo por tu foto real -->
                             <img src="IMG_9216.jpg" alt="Pendientes Rombo Mármol">
                         </div>
                         <h4>Rombo Mármol</h4>
@@ -283,11 +322,21 @@
                 </div>
             </div>
         </section>
+
+        <section id="taller">
+            <div class="section-title">
+                <span>Proceso Artesanal</span>
+                <h2>El Taller</h2>
+            </div>
+            <div class="taller-info">
+                <p>Cada pieza de LUMA es moldeada, cortada y montada minuciosamente a mano. La combinación de tonos lavanda, púrpura y blanco junto con los enganches dorados le da un carácter exclusivo e irrepetible a cada diseño.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="logo">LUMA</div>
-        <p>Modelado artesanal</p>
+        <p>Modelado Artesanal</p>
     </footer>
 
     <script>
